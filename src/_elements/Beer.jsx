@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import "../SCSS/components/beer";
 
 // class Beer extends React.Component {
 //    constructor(props) {
@@ -25,15 +26,14 @@ import PropTypes from "prop-types";
 
 
 const Beer = ({ details }) => (
-   <div>
+   <div className="beers">
       {
          details.map(beer => {
             return (
-
-               <div key={beer.id}>
-                  <img className="beer__image" src={beer.image_url} alt={beer.name} title={beer.name} />
-                  <h3 className="beer__name">{beer.name}</h3>
-                  <p className="beer__tagline">{beer.tagline}</p>
+               <div className="beers__beer" key={beer.id}>
+                  <img className="beers__image" src={beer.image_url} alt={beer.name} title={beer.name} />
+                  <h3 className="beers__name">{beer.name}</h3>
+                  <p className="beers__tagline">{beer.tagline}</p>
                </div>
 
             );

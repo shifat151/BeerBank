@@ -11,13 +11,13 @@ class Home extends React.Component {
 
       document.title = 'Home | React Redux REST API Boilerplate';
 
-      //declared out state
+      //declared our state
       //state is for store data in our component
       this.state = {
          beers: []
       }
    };
-
+   //Fetch data when components the page will mount
    componentWillMount() {
       const { dispatch } = this.props;
 
@@ -40,13 +40,14 @@ class Home extends React.Component {
       return (
          <div className="page">
             <Header />
-            <h1>Home</h1>
+
             <Beer details={beers} />
          </div>
       );
    }
 }
 
+//give access states  to props
 function mapStateToProps(state) {
    const { beers } = state;
    return {

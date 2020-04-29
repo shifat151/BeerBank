@@ -1,0 +1,49 @@
+.head {
+  align-content: center;
+  width: 100%;
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 300px;
+  padding: 10px;
+  text-align: center;
+  h1 {
+    position: relative;
+    float: left;
+    top: 0 px;
+    color: white;
+    text-decoration: none;
+    span {
+      transform: rotate(-20deg);
+      display: inline-block;
+    }
+  }
+
+  a {
+    position: relative;
+    float: right;
+    top: 0 px;
+    color: white;
+    text-decoration: none;
+  }
+  div {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 90px;
+    width: 100%;
+    color: white;
+    padding: 20px;
+  }
+  .search-form {
+    min-height: 10vh;
+    .search-bar {
+      width: 40%;
+      height: 30px;
+      border: none;
+      padding: 10px;
+      justify-content: center;
+      box-shadow: 0px 5px 20px rgb(71, 71, 71);
+    }
+  }
+}
