@@ -17,14 +17,15 @@
     }
   }
 
-  a {
+  .headlink {
     position: relative;
     float: right;
     top: 0 px;
     color: white;
     text-decoration: none;
+    font-size: 20px;
   }
-  div {
+  .headline {
     position: relative;
     display: flex;
     flex-wrap: wrap;

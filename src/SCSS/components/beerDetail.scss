@@ -1,0 +1,13 @@
+.beerDetail {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-evenly;
+  padding: 70px;
+
+  &__image {
+    max-height: 600px;
+    margin: 20px 0;
+  }
+}

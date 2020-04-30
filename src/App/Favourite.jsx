@@ -13,24 +13,25 @@ class Favourite extends React.Component {
 
       //declared out state
       //state is for store data in our component
+      //accesing the data from props as the central store will not update through this component 
       this.state = {
-         beers: []
+         beers: props.beers
       }
    };
 
-   componentWillMount() {
-      const { dispatch } = this.props;
+   // componentWillMount() {
+   //    const { dispatch } = this.props;
 
-      beerService.getBeers()
-         .then(beers => {
-            dispatch(beerActions.getBeers(beers));
-         });
-   }
+   //    beerService.getBeers()
+   //       .then(beers => {
+   //          dispatch(beerActions.getBeers(beers));
+   //       });
+   // }
 
 
-   componentWillReceiveProps(newProps) {
-      this.setState({ ['beers']: newProps.beers });
-   }
+   // componentWillReceiveProps(newProps) {
+   //    this.setState({ ['beers']: newProps.beers });
+   // }
 
    render() {
       const { beers } = this.state;

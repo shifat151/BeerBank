@@ -5,6 +5,7 @@ import { Router, Route, Switch, NavLink } from 'react-router-dom';
 import { Beer, Header } from './../_elements';
 import { beerActions, beerService } from './../_factory';
 
+
 class Home extends React.Component {
    constructor(props) {
       super(props);
@@ -12,22 +13,23 @@ class Home extends React.Component {
       document.title = 'Home | React Redux REST API Boilerplate';
 
       //declared our state
-      //state is for store data in our component
+      //state is for storing data in our component
       this.state = {
-         beers: []
+         beers: [],
       }
    };
-   //Fetch data when components the page will mount
+
+   //call the service for updating central store
    componentWillMount() {
       const { dispatch } = this.props;
-
+      //sending the beers got from beerservice to beeractions and the beeractions will update central store
       beerService.getBeers()
          .then(beers => {
             dispatch(beerActions.getBeers(beers));
          });
    }
 
-
+   //recieve data from central store and set the data to component state
    componentWillReceiveProps(newProps) {
       this.setState({ ['beers']: newProps.beers });
    }
@@ -38,6 +40,7 @@ class Home extends React.Component {
       //    console.log(beer)
       // }))
       return (
+
          <div className="page">
             <Header />
 
@@ -47,9 +50,10 @@ class Home extends React.Component {
    }
 }
 
-//give access states  to props
+//give access to the central store data to props
 function mapStateToProps(state) {
    const { beers } = state;
+   console.log(beers)
    return {
       beers
    };

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import "../SCSS/components/beer";
+import { Link } from 'react-router-dom';
 
 // class Beer extends React.Component {
 //    constructor(props) {
@@ -31,9 +32,12 @@ const Beer = ({ details }) => (
          details.map(beer => {
             return (
                <div className="beers__beer" key={beer.id}>
-                  <img className="beers__image" src={beer.image_url} alt={beer.name} title={beer.name} />
+                  <Link to={"/" + beer.id}>
+                     <img className="beers__image" src={beer.image_url} alt={beer.name} title={beer.name} />
+                  </Link>
                   <h3 className="beers__name">{beer.name}</h3>
                   <p className="beers__tagline">{beer.tagline}</p>
+
                </div>
 
             );

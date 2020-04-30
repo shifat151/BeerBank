@@ -1,6 +1,7 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
+import BeerDetails from '../_elements/BeerDetails'
 
 
 import { history } from '../_factory';
@@ -19,6 +20,7 @@ class App extends React.Component {
             <Router history={history}>
                <Switch>
                   <Route exact path="/" component={Home} />
+                  <Route path="/:id" component={BeerDetails} />
                   <Route exact path="/favourite" component={Favourite} />
                   <Route component={Home} />
                </Switch>

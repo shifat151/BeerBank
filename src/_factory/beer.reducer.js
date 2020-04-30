@@ -4,8 +4,7 @@ export function beer(state = [], action) {
       return action.beers
     default:
       return {
-        ...state,
-        'beers': []
+        ...state, 'beers': []
       }
   }
 }

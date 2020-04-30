@@ -8,16 +8,18 @@ class Header extends React.Component {
    };
 
    render() {
-
+      const activeStyle = { color: "white" };
       return (
          <header className="head">
             <h1><span>B</span>B</h1>
-            <a>
-               <NavLink exact={true} to="/favourite">FAVOURITE</NavLink>
-               <NavLink exact={true} to="/">HOME</NavLink>
+            <div className="headlink">
 
-            </a>
-            <div>
+               <NavLink exact={true} activeStyle={activeStyle} to="/">HOME</NavLink>
+               <NavLink exact={true} activeStyle={activeStyle} to="/favourite">FAVOURITE</NavLink>
+
+            </div>
+
+            <div className="headline">
                <h1>The Beer Bank</h1>
                <h3>YOUR FAVOURITE BEER PROVIDER</h3>
             </div>
