@@ -43,7 +43,6 @@ class Home extends React.Component {
 
          <div className="page">
             <Header />
-
             <Beer details={beers} />
          </div>
       );
@@ -53,7 +52,7 @@ class Home extends React.Component {
 //give access to the central store data to props
 function mapStateToProps(state) {
    const { beers } = state;
-   console.log(beers)
+   // console.log(beers)
    return {
       beers
    };

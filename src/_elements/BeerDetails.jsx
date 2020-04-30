@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { beerActions, beerService } from './../_factory';
+import { newBeer } from '../_factory/mockdata'
 
 
 
@@ -27,19 +28,21 @@ class BeerDetails extends React.Component {
 
 
     //recieve data from central store and set the data to component state
-    //call the service for updating central store
+    //data got from mapstatetoprop
     componentWillReceiveProps(newProps) {
-        console.log(newProps.beer)
+        // console.log(newProps.beer)
         this.setState({ ['beer']: newProps.beer });
     }
 
     render() {
         const { beer } = this.state;
-        console.log(beer)
+        // console.log(beer)
+
         return (
 
-            <div className="beerDetail">
+            < div className="beerDetail" >
                 {
+                    beer &&
 
                     <div className="beerDetail__beer" key={beer.id}>
                         <img className="beerDetail__image" src={beer.image_url} alt={beer.name} title={beer.name} />
@@ -48,28 +51,25 @@ class BeerDetails extends React.Component {
                         <p className="beerDetail__description">{beer.description}</p>
 
                     </div>
-
-
                 }
-            </div>
+            </div >
         );
     }
 }
 export function getBeerByID(beers, id) {
 
-    const obj = beers.find(beer => beer.id === parseInt(id)) || null;
-    console.log(obj)
-    return obj
+    const beer = beers.find(beer => beer.id === parseInt(id)) || null;
+    // console.log(obj)
+    return beer
 }
 
 
 
-//give access to the central store data to props
+//give access to the central store's data to props
 function mapStateToProps(state, ownProps) {
     const id = ownProps.match.params.id;
-    console.log(state.beers)
-    const beer = getBeerByID(state.beers, id)
-
+    // console.log(state.beers)
+    const beer = id && state.beers.length > 0 ? getBeerByID(state.beers, id) : newBeer
     return {
         beer
     };

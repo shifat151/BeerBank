@@ -11,27 +11,27 @@ class Favourite extends React.Component {
 
       document.title = 'Home | React Redux REST API Boilerplate';
 
-      //declared out state
-      //state is for store data in our component
-      //accesing the data from props as the central store will not update through this component 
+      //declared our state
+      //state is for storing data in our component
       this.state = {
-         beers: props.beers
+         beers: [],
       }
    };
 
-   // componentWillMount() {
-   //    const { dispatch } = this.props;
+   //call the service for updating central store
+   componentWillMount() {
+      const { dispatch } = this.props;
+      //sending the beers got from beerservice to beeractions and the beeractions will update central store
+      beerService.getBeers()
+         .then(beers => {
+            dispatch(beerActions.getBeers(beers));
+         });
+   }
 
-   //    beerService.getBeers()
-   //       .then(beers => {
-   //          dispatch(beerActions.getBeers(beers));
-   //       });
-   // }
-
-
-   // componentWillReceiveProps(newProps) {
-   //    this.setState({ ['beers']: newProps.beers });
-   // }
+   //recieve data from central store and set the data to component state
+   componentWillReceiveProps(newProps) {
+      this.setState({ ['beers']: newProps.beers });
+   }
 
    render() {
       const { beers } = this.state;
@@ -39,15 +39,16 @@ class Favourite extends React.Component {
       //    console.log(beer)
       // }))
       return (
+
          <div className="page">
             <Header />
-            <h1>Home</h1>
             <Beer details={beers} />
          </div>
       );
    }
 }
 
+//give access to the central store data to props
 function mapStateToProps(state) {
    const { beers } = state;
    return {

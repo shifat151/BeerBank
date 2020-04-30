@@ -20,7 +20,7 @@ class App extends React.Component {
             <Router history={history}>
                <Switch>
                   <Route exact path="/" component={Home} />
-                  <Route path="/:id" component={BeerDetails} />
+                  <Route path="/beer/:id" component={BeerDetails} />
                   <Route exact path="/favourite" component={Favourite} />
                   <Route component={Home} />
                </Switch>
