@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { beerActions, beerService } from './../_factory';
 import { newBeer } from '../_factory/mockdata'
+import "../SCSS/components/beerDetail"
 
 
 
@@ -31,11 +32,13 @@ class BeerDetails extends React.Component {
     //data got from mapstatetoprop
     componentWillReceiveProps(newProps) {
         // console.log(newProps.beer)
-        this.setState({ ['beer']: newProps.beer });
+        this.setState({
+            ['beer']: newProps.beer
+        });
     }
 
     render() {
-        const { beer } = this.state;
+        const { beer, close } = this.state;
         // console.log(beer)
 
         return (
@@ -45,6 +48,7 @@ class BeerDetails extends React.Component {
                     beer &&
 
                     <div className="beerDetail__beer" key={beer.id}>
+                        <button>&#10005;</button>
                         <img className="beerDetail__image" src={beer.image_url} alt={beer.name} title={beer.name} />
                         <h3 className="beerDetail__name">{beer.name}</h3>
                         <p className="beerDetail__tagline">{beer.tagline}</p>
@@ -67,11 +71,13 @@ export function getBeerByID(beers, id) {
 
 //give access to the central store's data to props
 function mapStateToProps(state, ownProps) {
-    const id = ownProps.match.params.id;
+    // console.log(ownProps);
+    // const id = ownProps.match.params.id;
     // console.log(state.beers)
+    const id = ownProps.id;
     const beer = id && state.beers.length > 0 ? getBeerByID(state.beers, id) : newBeer
     return {
-        beer
+        beer,
     };
 }
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Router, Route, Switch, NavLink } from 'react-router-dom';
 import { Beer, Header } from './../_elements';
 import { beerActions, beerService } from './../_factory';
+import Popup from "../_elements/popup"
 
 
 class Home extends React.Component {
@@ -33,6 +33,7 @@ class Home extends React.Component {
    componentWillReceiveProps(newProps) {
       this.setState({ ['beers']: newProps.beers });
    }
+
 
    render() {
       const { beers } = this.state;
