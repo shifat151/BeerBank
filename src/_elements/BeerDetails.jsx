@@ -16,6 +16,7 @@ class BeerDetails extends React.Component {
         //state is for storing data in our component
         this.state = {
             beer: {},
+            pairs: []
         }
     };
     componentWillMount() {
@@ -33,26 +34,65 @@ class BeerDetails extends React.Component {
     componentWillReceiveProps(newProps) {
         // console.log(newProps.beer)
         this.setState({
-            ['beer']: newProps.beer
+            ['beer']: newProps.beer,
+            ['pairs']: newProps.beer.food_pairing
+
         });
     }
 
     render() {
-        const { beer, close } = this.state;
-        // console.log(beer)
+        const { beer, pairs } = this.state;
+        console.log(pairs)
+
 
         return (
 
-            < div className="beerDetail" >
+            < div className="detail" >
+
                 {
                     beer &&
 
-                    <div className="beerDetail__beer" key={beer.id}>
-                        <button>&#10005;</button>
-                        <img className="beerDetail__image" src={beer.image_url} alt={beer.name} title={beer.name} />
-                        <h3 className="beerDetail__name">{beer.name}</h3>
-                        <p className="beerDetail__tagline">{beer.tagline}</p>
-                        <p className="beerDetail__description">{beer.description}</p>
+                    < div className="detail__beer" key={beer.id}>
+
+                        <div className="detail__beer__left">
+                            {/* <button>&#10005;</button> */}
+                            <img className="detail__beer__left__image" src={beer.image_url} alt={beer.name} title={beer.name} />
+                        </div>
+
+                        <div className="detail__beer__right">
+                            <h3 >{beer.name}</h3>
+                            <br />
+                            <h5 >{beer.tagline}</h5>
+                            <div className="detail__beer__right__number">
+                                <p>IBU: {beer.ibu}</p>
+                                <p>ABV: {beer.abv}</p>
+                                <p>EBC: {beer.ebc}</p>
+
+
+
+                            </div>
+                            <div className="detail__beer__right__desciption">
+                                <h6>{beer.description}</h6>
+
+                            </div>
+
+
+
+                            <ul>
+                                {
+                                    pairs.map(pair => (
+                                        <li>{pair}</li>
+                                    ))
+                                }
+                            </ul>
+
+                        </div>
+
+
+
+
+
+
 
                     </div>
                 }

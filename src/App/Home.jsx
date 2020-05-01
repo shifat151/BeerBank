@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Beer, Header } from './../_elements';
 import { beerActions, beerService } from './../_factory';
-import Popup from "../_elements/popup"
 
 
 class Home extends React.Component {

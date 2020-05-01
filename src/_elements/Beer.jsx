@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTypes from "prop-types";
 import "../SCSS/components/beer";
 import { Link } from 'react-router-dom';
-import Popup from "./popup"
 import BeerDetails from "./BeerDetails"
 
 class Beer extends React.Component {
@@ -55,6 +53,7 @@ class Beer extends React.Component {
       );
    }
 }
+
 export default Beer;
 
 
