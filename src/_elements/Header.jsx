@@ -1,13 +1,50 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import "../SCSS/components/head"
+import "../SCSS/components/head";
+import { beerActions, beerService } from './../_factory';
+import { connect } from 'react-redux';
 
 class Header extends React.Component {
    constructor(props) {
       super(props);
+      this.state = {
+         search: '',
+      };
+      this.updateSearch = this.updateSearch.bind(this);
+      this.fetchSearchResult = this.fetchSearchResult.bind(this);
    };
 
+   fetchSearchResult() {
+      const { dispatch } = this.props;
+      //sending the beers got from beerservice to beeractions and the beeractions will update central store
+
+      if (this.state.search != '') {
+         beerService.searchBeers(this.state.search)
+            .then(beers => {
+               dispatch(beerActions.getBeers(beers));
+            });
+
+      }
+      else {
+         beerService.getBeers()
+            .then(beers => {
+               dispatch(beerActions.getBeers(beers));
+            });
+      }
+
+
+   }
+
+   updateSearch(e) {
+      this.setState({
+         search: e.target.value
+      }, () => {
+         this.fetchSearchResult();
+      });
+   }
+
    render() {
+
       const activeStyle = { color: "white" };
       return (
          <header className="head">
@@ -25,7 +62,7 @@ class Header extends React.Component {
             </div>
 
             <form className="search-form">
-               <input className="search-bar" placeholder="Search for beeer name" type="text" />
+               <input className="search-bar" type="text" value={this.search} onChange={this.updateSearch} />
             </form>
 
 
@@ -37,4 +74,12 @@ class Header extends React.Component {
    }
 }
 
-export default Header;
+function mapStateToProps(state) {
+   const { beers } = state;
+   // console.log(beers)
+   return {
+      beers
+   };
+}
+
+export default connect(mapStateToProps)(Header);
