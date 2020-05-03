@@ -36,6 +36,7 @@ class Header extends React.Component {
    }
 
    updateSearch(e) {
+      e.preventDefault();
       this.setState({
          search: e.target.value
       }, () => {
@@ -47,23 +48,29 @@ class Header extends React.Component {
 
       const activeStyle = { color: "white" };
       return (
-         <header className="head">
+         <header className="head" >
             <h1><span>B</span>B</h1>
-            <div className="headlink">
+            <div className="head__headlink">
 
-               <NavLink exact={true} activeStyle={activeStyle} to="/">HOME</NavLink>
-               <NavLink exact={true} activeStyle={activeStyle} to="/favourite">FAVOURITE</NavLink>
+               <NavLink style={{ textDecoration: 'none' }} exact={true} activeStyle={activeStyle} to="/">Home </NavLink>
+               <NavLink style={{ textDecoration: 'none' }} exact={true} activeStyle={activeStyle} to="/favourite">Favourite</NavLink>
 
             </div>
 
-            <div className="headline">
+            <div className="head__headline">
                <h1>The Beer Bank</h1>
                <h3>YOUR FAVOURITE BEER PROVIDER</h3>
             </div>
 
-            <form className="search-form">
+            <form className="head__searchForm">
                <input className="search-bar" type="text" value={this.search} onChange={this.updateSearch} />
             </form>
+            <Link to={"/advance-search"} style={{ textDecoration: 'none', color: 'white' }}><p>Advanced Search</p></Link>
+
+
+            {/* <Link to={"beer/" + beer.id}>
+                        <img className="beers__image" src={beer.image_url} alt={beer.name} title={beer.name} />
+                     </Link> */}
 
 
 

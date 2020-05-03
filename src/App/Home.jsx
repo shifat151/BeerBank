@@ -16,6 +16,7 @@ class Home extends React.Component {
       this.state = {
          beers: [],
       }
+
    };
 
    //call the service for updating central store
@@ -32,6 +33,11 @@ class Home extends React.Component {
    componentWillReceiveProps(newProps) {
       this.setState({ ['beers']: newProps.beers });
    }
+
+
+
+
+
 
 
    render() {

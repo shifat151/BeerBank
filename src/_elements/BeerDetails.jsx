@@ -19,25 +19,18 @@ class BeerDetails extends React.Component {
             pairs: []
         }
     };
-    componentWillMount() {
-        const { dispatch } = this.props;
-        //sending the beers got from beerservice to beeractions and the beeractions will update central store
-        beerService.getBeers()
-            .then(beers => {
-                dispatch(beerActions.getBeers(beers));
-            });
-    }
 
 
-    //recieve data from central store and set the data to component state
-    //data got from mapstatetoprop
-    componentWillReceiveProps(newProps) {
-        // console.log(newProps.beer)
+
+
+    componentDidMount() {
+        console.log(this.props.beer.food_pairing)
         this.setState({
-            ['beer']: newProps.beer,
-            ['pairs']: newProps.beer.food_pairing
+            ['beer']: this.props.beer,
+            ['pairs']: this.props.beer.food_pairing
 
         });
+
     }
 
     render() {
@@ -79,9 +72,9 @@ class BeerDetails extends React.Component {
 
 
                             <ul>
-                                {
+                                {pairs &&
                                     pairs.map(pair => (
-                                        <li>{pair}</li>
+                                        <li key={pair}>{pair}</li>
                                     ))
                                 }
                             </ul>
@@ -101,9 +94,9 @@ class BeerDetails extends React.Component {
     }
 }
 export function getBeerByID(beers, id) {
-
+    console.log(beers)
     const beer = beers.find(beer => beer.id === parseInt(id)) || null;
-    // console.log(obj)
+    console.log(beer)
     return beer
 }
 
@@ -113,8 +106,9 @@ export function getBeerByID(beers, id) {
 function mapStateToProps(state, ownProps) {
     // console.log(ownProps);
     // const id = ownProps.match.params.id;
-    // console.log(state.beers)
+    console.log(state.beers)
     const id = ownProps.id;
+    console.log(id)
     const beer = id && state.beers.length > 0 ? getBeerByID(state.beers, id) : newBeer
     return {
         beer,

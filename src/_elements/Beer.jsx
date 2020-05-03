@@ -23,34 +23,49 @@ class Beer extends React.Component {
 
    render() {
       const beers = this.props.details;
+      if (Object.keys(beers).length != 0) {
+         console.log(beers)
 
-      return (
-         <div className="beers">
+         return (
+            <div className="beers">
 
-            {
-               beers.map(beer => (
-                  <div id={beer.id} onClick={this.handleClick.bind(this, beer.id)} className="beers__beer" key={beer.id}>
-                     {/* <Link to={"beer/" + beer.id}>
+               {
+
+                  beers.map(beer => (
+                     <div id={beer.id} onClick={this.handleClick.bind(this, beer.id)} className="beers__beer" key={beer.id}>
+                        {/* <Link to={"beer/" + beer.id}>
+                              <img className="beers__image" src={beer.image_url} alt={beer.name} title={beer.name} />
+                           </Link> */}
                         <img className="beers__image" src={beer.image_url} alt={beer.name} title={beer.name} />
-                     </Link> */}
-                     <img className="beers__image" src={beer.image_url} alt={beer.name} title={beer.name} />
-                     <h3 className="beers__name">{beer.name}</h3>
-                     <p className="beers__tagline">{beer.tagline}</p>
-                     {this.state.showPopup ?
-                        <BeerDetails
-                           id={this.state.showId}
-                        />
-                        : null
-                     }
-                  </div>
+                        <h3 className="beers__name">{beer.name}</h3>
+                        <p className="beers__tagline">{beer.tagline}</p>
+                        {this.state.showPopup ?
+                           <BeerDetails
+                              id={this.state.showId}
+                           />
+                           : null
+                        }
+                     </div>
 
 
 
 
-               ))
-            }
-         </div>
-      );
+                  ))
+
+
+               }
+            </div>
+         );
+
+
+      }
+      else {
+         return (
+            <div></div>
+         )
+
+      }
+
    }
 }
 
