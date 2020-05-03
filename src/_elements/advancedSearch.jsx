@@ -4,7 +4,7 @@ import { beerActions, beerService } from './../_factory';
 import { connect } from 'react-redux';
 import Beer from "./Beer";
 import "../SCSS/components/advSearch"
-import { newBeerArr } from "../_factory/mockdata"
+
 
 class advancedSearch extends React.Component {
     constructor(props) {
@@ -40,7 +40,7 @@ class advancedSearch extends React.Component {
             beerService.advanceSearchBeers(abv_gt, abv_lt, ebc_gt, ebc_lt, ibu_gt, ibu_lt)
                 .then(beers => {
                     dispatch(beerActions.getBeers(beers));
-                    console.log("entered");
+
                 });
         }
 
@@ -62,8 +62,6 @@ class advancedSearch extends React.Component {
     }
 
     render() {
-
-        const activeStyle = { color: "white" };
         const { beers } = this.state;
         return (
             <div className="advSearch">

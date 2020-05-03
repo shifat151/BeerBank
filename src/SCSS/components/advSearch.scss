@@ -64,6 +64,12 @@
           display: flex;
           flex-wrap: wrap;
           flex-direction: column;
+          input[type="number"] {
+            padding: 5px;
+            border: 2px solid #ccc;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+          }
         }
       }
       &__two {
@@ -77,6 +83,12 @@
           display: flex;
           flex-wrap: wrap;
           flex-direction: column;
+          input[type="number"] {
+            padding: 5px;
+            border: 2px solid #ccc;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+          }
         }
       }
     }

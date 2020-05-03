@@ -1,6 +1,5 @@
 import React from 'react';
 import "../SCSS/components/beer";
-import { Link } from 'react-router-dom';
 import BeerDetails from "./BeerDetails"
 
 class Beer extends React.Component {
@@ -32,13 +31,13 @@ class Beer extends React.Component {
                {
 
                   beers.map(beer => (
-                     <div style={{ cursor: 'pointer' }} id={beer.id} onClick={this.handleClick.bind(this, beer.id)} className="beers__beer" key={beer.id}>
+                     <div className="beers__beer" key={beer.id} style={{ cursor: 'pointer' }} id={beer.id} onClick={this.handleClick.bind(this, beer.id)} >
                         {/* <Link to={"beer/" + beer.id}>
                               <img className="beers__image" src={beer.image_url} alt={beer.name} title={beer.name} />
                            </Link> */}
-                        <img className="beers__image" src={beer.image_url} alt={beer.name} title={beer.name} />
-                        <h3 className="beers__name">{beer.name}</h3>
-                        <p className="beers__tagline">{beer.tagline}</p>
+                        <img className="beers__beer__image" src={beer.image_url} alt={beer.name} title={beer.name} />
+                        <h3 className="beers__beer__name">{beer.name}</h3>
+                        <p className="beers__beer__tagline">{beer.tagline}</p>
                         {this.state.showPopup ?
                            <BeerDetails
                               id={this.state.showId}

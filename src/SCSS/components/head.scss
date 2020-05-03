@@ -44,6 +44,9 @@
     color: white;
     font-family: "Roboto", sans-serif;
     margin-top: 5em;
+    h4 {
+      letter-spacing: 3px;
+    }
   }
   &__searchForm {
     min-height: 10vh;

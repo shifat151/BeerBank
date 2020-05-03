@@ -56,21 +56,22 @@ class BeerDetails extends React.Component {
                             <h3 >{beer.name}</h3>
                             <br />
                             <h5 >{beer.tagline}</h5>
+
                             <div className="detail__beer__right__number">
-                                <p>IBU: {beer.ibu}</p>
-                                <p>ABV: {beer.abv}</p>
-                                <p>EBC: {beer.ebc}</p>
+                                <p>IBU: {beer.ibu}  </p>
+                                <p>ABV: {beer.abv}  </p>
+                                <p>EBC: {beer.ebc}  </p>
 
 
 
                             </div>
                             <div className="detail__beer__right__desciption">
-                                <h6>{beer.description}</h6>
+                                <p>{beer.description}</p>
 
                             </div>
 
 
-
+                            <h4>Best Serverd with:</h4>
                             <ul>
                                 {pairs &&
                                     pairs.map(pair => (
@@ -94,9 +95,9 @@ class BeerDetails extends React.Component {
     }
 }
 export function getBeerByID(beers, id) {
-    console.log(beers)
+    // console.log(beers)
     const beer = beers.find(beer => beer.id === parseInt(id)) || null;
-    console.log(beer)
+    // console.log(beer)
     return beer
 }
 
@@ -106,9 +107,9 @@ export function getBeerByID(beers, id) {
 function mapStateToProps(state, ownProps) {
     // console.log(ownProps);
     // const id = ownProps.match.params.id;
-    console.log(state.beers)
+    // console.log(state.beers)
     const id = ownProps.id;
-    console.log(id)
+    // console.log(id)
     const beer = id && state.beers.length > 0 ? getBeerByID(state.beers, id) : newBeer
     return {
         beer,

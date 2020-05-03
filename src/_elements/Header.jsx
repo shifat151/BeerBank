@@ -65,7 +65,7 @@ class Header extends React.Component {
 
             <div className="head__headline">
                <h1>The Beer Bank</h1>
-               <h3>YOUR FAVOURITE BEER PROVIDER</h3>
+               <h4>YOUR FAVOURITE BEER PROVIDER</h4>
             </div>
 
             <form className="head__searchForm">

@@ -2,7 +2,6 @@
   position: fixed;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   flex-direction: row;
   width: 50%;
   height: 90%;
@@ -11,15 +10,18 @@
   right: 0;
   bottom: 0;
   margin: auto;
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  font-family: "Roboto", sans-serif;
+  background-color: white;
+
   justify-content: space-around;
+  // border: double red;
 
   &__beer {
     display: flex;
     flex-wrap: wrap;
+    align-content: center;
     flex-direction: row;
     // border: solid yellow;
-    align-items: center;
     padding-left: 5em;
     padding-right: 5em;
 
@@ -28,10 +30,11 @@
       flex-wrap: wrap;
       flex-direction: row;
       // border: solid red;
-      max-width: 30%;
+      max-width: 20%;
       max-height: 70%;
       &__image {
-        max-width: 30rem;
+        margin-top: 1rem;
+        max-width: 20rem;
         max-height: 20rem;
       }
     }
@@ -46,19 +49,17 @@
       justify-content: space-around;
       // border: solid black;
       flex-wrap: wrap;
-      &__number p {
-        // display: flex;
-        // flex-direction: row;
-        // justify-content: space-between;
-        // flex-wrap: wrap;
-        display: inline-block;
+      &__number {
+        flex-wrap: wrap;
+        p {
+          display: inline-block;
+          padding: 5px;
+        }
       }
       &__desciption {
         // border: dotted yellowgreen;
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
-        flex-wrap: wrap;
+
+        padding: 5px;
       }
       ul {
         display: flex;
