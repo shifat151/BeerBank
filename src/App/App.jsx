@@ -5,6 +5,7 @@ import BeerDetails from '../_elements/BeerDetails'
 import advancedSearch from '../_elements/advancedSearch'
 
 
+
 import { history } from '../_factory';
 import { Home } from './Home';
 import { Favourite } from './Favourite';

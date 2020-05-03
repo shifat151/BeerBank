@@ -12,7 +12,11 @@ class Header extends React.Component {
       };
       this.updateSearch = this.updateSearch.bind(this);
       this.fetchSearchResult = this.fetchSearchResult.bind(this);
+      this.refreshPage = this.refreshPage.bind(this);
    };
+   refreshPage() {
+      window.location.reload(false);
+   }
 
    fetchSearchResult() {
       const { dispatch } = this.props;
@@ -49,13 +53,15 @@ class Header extends React.Component {
       const activeStyle = { color: "white" };
       return (
          <header className="head" >
-            <h1><span>B</span>B</h1>
-            <div className="head__headlink">
+            <div className="head__nav">
+               <h1 style={{ cursor: 'pointer' }} onClick={this.refreshPage}><span>B</span>B</h1>
+               <div className="head__nav__headlink">
+                  <NavLink style={{ textDecoration: 'none', color: '#DDDDB7' }} exact={true} activeStyle={activeStyle} to="/">Home </NavLink>
+                  <NavLink style={{ textDecoration: 'none', color: '#DDDDB7' }} exact={true} activeStyle={activeStyle} to="/favourite">Favourite</NavLink>
 
-               <NavLink style={{ textDecoration: 'none' }} exact={true} activeStyle={activeStyle} to="/">Home </NavLink>
-               <NavLink style={{ textDecoration: 'none' }} exact={true} activeStyle={activeStyle} to="/favourite">Favourite</NavLink>
-
+               </div>
             </div>
+
 
             <div className="head__headline">
                <h1>The Beer Bank</h1>
@@ -63,7 +69,7 @@ class Header extends React.Component {
             </div>
 
             <form className="head__searchForm">
-               <input className="search-bar" type="text" value={this.search} onChange={this.updateSearch} />
+               <input className="search-bar" type="text" placeholder="search for beer name" value={this.search} onChange={this.updateSearch} />
             </form>
             <Link to={"/advance-search"} style={{ textDecoration: 'none', color: 'white' }}><p>Advanced Search</p></Link>
 

@@ -20,7 +20,11 @@ class advancedSearch extends React.Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.fetchSearchResult = this.fetchSearchResult.bind(this);
+        this.refreshPage = this.refreshPage.bind(this);
     };
+    refreshPage() {
+        window.location.reload(false);
+    }
 
     componentWillReceiveProps(newProps) {
         this.setState({ ['beers']: newProps.beers });
@@ -64,11 +68,11 @@ class advancedSearch extends React.Component {
         return (
             <div className="advSearch">
                 <header className="advSearch__head">
-                    <h1><span>B</span>B</h1>
+                    <h1 style={{ cursor: 'pointer' }} onClick={this.refreshPage}><span>B</span>B</h1>
                     <div className="advSearch__head__headlink">
 
-                        <NavLink style={{ textDecoration: 'none' }} exact={true} activeStyle={activeStyle} to="/">Home </NavLink>
-                        <NavLink style={{ textDecoration: 'none' }} exact={true} activeStyle={activeStyle} to="/favourite">Favourite</NavLink>
+                        <NavLink style={{ textDecoration: 'none', color: '#DDDDB7' }} exact={true} to="/">Home </NavLink>
+                        <NavLink style={{ textDecoration: 'none', color: '#DDDDB7' }} exact={true} to="/favourite">Favourite</NavLink>
 
                     </div>
 

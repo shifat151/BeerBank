@@ -1,28 +1,38 @@
 .head {
-  align-content: center;
   width: 100%;
-  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 300px;
-  padding: 10px;
+  background-color: #512da8;
+  min-height: 15rem;
   text-align: center;
-  h1 {
-    position: relative;
-    float: left;
-    top: 0 px;
-    color: white;
-    text-decoration: none;
-    span {
-      transform: rotate(-20deg);
-      display: inline-block;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  &__nav {
+    padding: 1rem;
+    position: fixed;
+    background-color: inherit;
+    min-width: 100%;
+
+    &__headlink {
+      float: right;
+      top: 0 px;
+      margin-right: 1rem;
+      font-family: "Roboto", sans-serif;
+    }
+    h1 {
+      position: relative;
+      float: left;
+      top: 0 px;
+      color: white;
+      text-decoration: none;
+
+      span {
+        transform: rotate(-20deg);
+        display: inline-block;
+      }
     }
   }
 
-  &__headlink {
-    position: relative;
-    float: right;
-    top: 0 px;
-    font-size: 20px;
-  }
   &__headline {
     position: relative;
     display: flex;
@@ -32,7 +42,8 @@
     height: 90px;
     width: 100%;
     color: white;
-    padding: 20px;
+    font-family: "Roboto", sans-serif;
+    margin-top: 5em;
   }
   &__searchForm {
     min-height: 10vh;
@@ -43,6 +54,7 @@
       padding: 10px;
       justify-content: center;
       box-shadow: 0px 5px 20px rgb(71, 71, 71);
+      font-family: "Roboto", sans-serif;
     }
   }
 }

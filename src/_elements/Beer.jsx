@@ -32,7 +32,7 @@ class Beer extends React.Component {
                {
 
                   beers.map(beer => (
-                     <div id={beer.id} onClick={this.handleClick.bind(this, beer.id)} className="beers__beer" key={beer.id}>
+                     <div style={{ cursor: 'pointer' }} id={beer.id} onClick={this.handleClick.bind(this, beer.id)} className="beers__beer" key={beer.id}>
                         {/* <Link to={"beer/" + beer.id}>
                               <img className="beers__image" src={beer.image_url} alt={beer.name} title={beer.name} />
                            </Link> */}
