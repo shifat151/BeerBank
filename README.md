@@ -21,7 +21,7 @@ $ npm run build
 ```
 
 ### Build & Host
-**Hosted App URL** - [Add your published app URL here]
+**Hosted App URL** - [https://beerbank-baa82.web.app/]
 
 **Build Package** - https://gitlab.com/shishirmorshed/react-redux-rest-api-boilerplate/-/raw/master/dist.zip
 
