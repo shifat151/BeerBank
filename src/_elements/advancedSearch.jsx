@@ -35,7 +35,7 @@ class advancedSearch extends React.Component {
         const { dispatch } = this.props;
         const { abv_gt, abv_lt, ebc_gt, ebc_lt, ibu_gt, ibu_lt } = this.state;
         // sending the beers got from beerservice to beeractions and the beeractions will update central store
-        // console.log(ibu_lt);
+        console.log(ibu_lt);
         if (!isNaN(abv_gt) && !isNaN(abv_lt) && !isNaN(ebc_gt) && !isNaN(ebc_lt) && !isNaN(ibu_gt) && !isNaN(ibu_lt)) {
             beerService.advanceSearchBeers(abv_gt, abv_lt, ebc_gt, ebc_lt, ibu_gt, ibu_lt)
                 .then(beers => {
@@ -56,7 +56,8 @@ class advancedSearch extends React.Component {
 
     handleChange(evt) {
         //callback function
-        this.setState({ [evt.target.name]: parseInt(evt.target.value) }, () => {
+        const formValue = parseInt(evt.target.value);
+        this.setState({ [evt.target.name]: isNaN(formValue) ? 1 : formValue }, () => {
             this.fetchSearchResult();
         });
     }
