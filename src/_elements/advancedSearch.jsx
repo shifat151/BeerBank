@@ -14,9 +14,9 @@ class advancedSearch extends React.Component {
             abv_gt: 1,
             abv_lt: 100,
             ebc_gt: 1,
-            ebc_lt: 500,
+            ebc_lt: 300,
             ibu_gt: 1,
-            ibu_lt: 100,
+            ibu_lt: 300,
         };
         this.handleChange = this.handleChange.bind(this);
         this.fetchSearchResult = this.fetchSearchResult.bind(this);
@@ -86,16 +86,16 @@ class advancedSearch extends React.Component {
                         <div className="advSearch__search__form__one">
                             <div className="advSearch__search__form__one__formGroup">
                                 <label>Min ABV:</label>
-                                <input type="number" id="abv_gt" name="abv_gt" min="0" max="100" onChange={this.handleChange}></input>
+                                <input type="number" id="abv_gt" name="abv_gt" min="1" max="100" onChange={this.handleChange}></input>
                             </div>
                             <div className="advSearch__search__form__one__formGroup">
                                 <label>Max ABV:</label>
-                                <input type="number" id="abv_lt" name="abv_lt" min="0" max="100" onChange={this.handleChange}></input>
+                                <input type="number" id="abv_lt" name="abv_lt" min="1" max="100" onChange={this.handleChange}></input>
 
                             </div>
                             <div className="advSearch__search__form__one__formGroup">
                                 <label>Min EBC:</label>
-                                <input type="number" id="ebc_gt" name="ebc_gt" min="0" max="100" onChange={this.handleChange}></input>
+                                <input type="number" id="ebc_gt" name="ebc_gt" min="1" max="300" onChange={this.handleChange}></input>
                             </div>
                         </div>
 
@@ -103,17 +103,17 @@ class advancedSearch extends React.Component {
                         <div className="advSearch__search__form__two">
                             <div className="advSearch__search__form__two__formGroup">
                                 <label>Max EBC:</label>
-                                <input type="number" id="ebc_lt" name="ebc_lt" min="0" max="100" onChange={this.handleChange}></input>
+                                <input type="number" id="ebc_lt" name="ebc_lt" min="1" max="300" onChange={this.handleChange}></input>
                             </div>
                             <div className="advSearch__search__form__two__formGroup">
                                 <label>Min IBU:</label>
-                                <input type="number" id="ibu_gt" name="ibu_gt" min="0" max="100" onChange={this.handleChange}></input>
+                                <input type="number" id="ibu_gt" name="ibu_gt" min="1" max="300" onChange={this.handleChange}></input>
 
                             </div>
                             <div className="advSearch__search__form__two__formGroup">
 
                                 <label>Max IBU:</label>
-                                <input type="number" id="ibu_lt" name="ibu_lt" min="0" max="100" onChange={this.handleChange}></input>
+                                <input type="number" id="ibu_lt" name="ibu_lt" min="1" max="300" onChange={this.handleChange}></input>
 
                             </div>
                         </div>
