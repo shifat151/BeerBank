@@ -49,7 +49,7 @@ class BeerDetails extends React.Component {
 
                         <div className="detail__beer__left">
                             {/* <button>&#10005;</button> */}
-                            <img className="detail__beer__left__image" src={beer.image_url} alt={beer.name} title={beer.name} />
+                            <img src={beer.image_url} alt={beer.name} title={beer.name} />
                         </div>
 
                         <div className="detail__beer__right">

@@ -2,7 +2,6 @@
   position: fixed;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
   width: 50%;
   height: 90%;
   top: 0;
@@ -12,28 +11,22 @@
   margin: auto;
   font-family: "Roboto", sans-serif;
   background-color: white;
-
-  justify-content: space-around;
   // border: double red;
 
   &__beer {
     display: flex;
     flex-wrap: wrap;
-    align-content: center;
     flex-direction: row;
+    align-items: center;
+    padding-left: 2rem;
     // border: solid yellow;
-    padding-left: 5em;
-    padding-right: 5em;
 
     &__left {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
       // border: solid red;
       max-width: 20%;
       max-height: 70%;
-      &__image {
-        margin-top: 1rem;
+
+      img {
         max-width: 20rem;
         max-height: 20rem;
       }
@@ -42,13 +35,14 @@
     &__right {
       padding: 2rem;
       display: flex;
-      max-width: 70%;
-      max-height: 70%;
+      flex-wrap: wrap;
       flex-direction: column;
       align-items: flex-start;
+      max-width: 70%;
+      max-height: 100%;
       justify-content: space-around;
       // border: solid black;
-      flex-wrap: wrap;
+
       &__number {
         flex-wrap: wrap;
         p {
@@ -56,11 +50,7 @@
           padding: 5px;
         }
       }
-      &__desciption {
-        // border: dotted yellowgreen;
 
-        padding: 5px;
-      }
       ul {
         display: flex;
         align-items: flex-start;
