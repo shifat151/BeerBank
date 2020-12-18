@@ -58,9 +58,17 @@ class Home extends React.Component {
 //give access to the central store data to props
 function mapStateToProps(state) {
    const { beers } = state;
-   // console.log(beers)
+   // console.log(Object.keys(beers).length)
    return {
-      beers
+
+      beers: Object.keys(beers).length <= 1
+         ? []
+         : beers.map(beer => {
+            return {
+               ...beer,
+               favourite: false
+            }
+         })
    };
 }
 

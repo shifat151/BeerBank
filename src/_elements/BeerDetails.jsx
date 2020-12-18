@@ -24,7 +24,7 @@ class BeerDetails extends React.Component {
 
 
     componentDidMount() {
-        console.log(this.props.beer.food_pairing)
+        // console.log(this.props)
         this.setState({
             ['beer']: this.props.beer,
             ['pairs']: this.props.beer.food_pairing
@@ -40,7 +40,7 @@ class BeerDetails extends React.Component {
 
         return (
 
-            < div className="detail" >
+            < div className="detail" onClick={this.props.handleClick}>
 
                 {
                     beer &&

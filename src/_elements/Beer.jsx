@@ -22,8 +22,8 @@ class Beer extends React.Component {
 
    render() {
       const beers = this.props.details;
-      if (Object.keys(beers).length != 0) {
-         console.log(beers)
+      if (Object.keys(beers).length > 1) {
+         console.log(beers);
 
          return (
             <div className="beers">
@@ -31,16 +31,17 @@ class Beer extends React.Component {
                {
 
                   beers.map(beer => (
-                     <div className="beers__beer" key={beer.id} style={{ cursor: 'pointer' }} id={beer.id} onClick={this.handleClick.bind(this, beer.id)} >
+                     <div className="beers__beer" key={beer.id} style={{ cursor: 'pointer' }} id={beer.id} >
                         {/* <Link to={"beer/" + beer.id}>
                               <img className="beers__image" src={beer.image_url} alt={beer.name} title={beer.name} />
                            </Link> */}
-                        <img className="beers__beer__image" src={beer.image_url} alt={beer.name} title={beer.name} />
+                        <img className="beers__beer__image" src={beer.image_url} alt={beer.name} title={beer.name} onClick={this.handleClick.bind(this, beer.id)} />
                         <h3 className="beers__beer__name">{beer.name}</h3>
                         <p className="beers__beer__tagline">{beer.tagline}</p>
                         {this.state.showPopup ?
                            <BeerDetails
                               id={this.state.showId}
+                              closePopup={this.handleClick.bind(this)}
                            />
                            : null
                         }

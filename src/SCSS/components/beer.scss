@@ -7,19 +7,17 @@
   &__beer {
     display: flex;
     flex-direction: column;
-    min-width: 15rem;
-    max-width: 15rem;
-    min-height: 15rem;
-    max-height: 15rem;
+    width: 18rem;
+    height: 20rem;
     margin-top: 2rem;
     align-items: center;
     border-radius: 10px;
     background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
 
     &__image {
-      max-height: 10rem;
+      height: 10rem;
       margin: 2rem 0;
-      max-width: 4rem;
+      width: 4rem;
     }
   }
 }

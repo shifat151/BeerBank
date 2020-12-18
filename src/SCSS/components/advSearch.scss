@@ -5,9 +5,8 @@
   &__head {
     padding: 1rem;
     position: fixed;
-    position: fixed;
-    background-color: #512da8;
-    min-width: 100%;
+    background-color: #411464;
+    width: 100%;
 
     &__headlink {
       float: right;
@@ -29,12 +28,14 @@
     }
   }
   &__headline {
+    margin-top: 4rem;
     min-height: 5em;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    color: #667eea;
+    color: #411464;
     justify-content: center;
+    font-family: "Roboto", sans-serif;
   }
   &__search {
     display: flex;
@@ -44,6 +45,7 @@
     justify-content: center;
     min-height: 6em;
     flex-direction: column;
+    font-family: "Roboto", sans-serif;
     &__form {
       // border: dotted red;
       display: flex;
@@ -58,7 +60,7 @@
         flex-direction: row;
         // border: double black;
         justify-content: space-evenly;
-        align-content: flex-start;
+        align-items: flex-start;
 
         &__formGroup {
           display: flex;
@@ -79,7 +81,7 @@
         flex-direction: row;
         // border: double black;
         justify-content: space-evenly;
-        align-content: flex-start;
+        align-items: flex-start;
         &__formGroup {
           display: flex;
           flex-wrap: wrap;
